@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "FColordTexture.h"
 #include "UserProfile.generated.h"
 /**
  * 
@@ -19,4 +20,11 @@ class PYRAMIDTREASURE_API UUserProfile : public UObject
 	float HpMax;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 	FString Name;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = unit)
+	TSubclassOf<UObject> UClassOfPlayer;
+	UPROPERTY(EditAnywhere,meta = (MetaClass = "/Script/Engine.GameMode"), Category = unit)
+	FSoftClassPath UClassGameMode;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HUD);
+	FColordTexture Texture;
+	
 };
