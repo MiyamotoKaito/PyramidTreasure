@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "UserProfile.h"
+#include "EnumName.h"
 #include "Chapter02_GameModeBase.generated.h"
 
 /**
@@ -25,4 +26,6 @@ public:
 	FTimerHandle TimerHandle;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = UclassNames)
 	TSubclassOf<UUserProfile> UPBlueprintClassName;	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Status)
+	TEnumAsByte<Status> Enum;
 };

@@ -3,6 +3,7 @@
 
 #include "Chapter02_GameModeBase.h"
 #include "TimerManager.h"
+#include "UAction.h"
 
 void AChapter02_GameModeBase::BeginPlay()
 {
@@ -10,7 +11,7 @@ void AChapter02_GameModeBase::BeginPlay()
  
 	// 1. UUserProfileの生成 (所有者をthisに設定してメモリ管理を安定化)
 	UUserProfile* NewObjectPtr = NewObject<UUserProfile>(this, UUserProfile::StaticClass());
-    
+    UUAction* Action = NewObject<UUAction>(GetTransientPackage(), UUAction::StaticClass());
 	if (NewObjectPtr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Target Spawned"));
@@ -22,6 +23,10 @@ void AChapter02_GameModeBase::BeginPlay()
  
 		// 3. タイマーのセット (関数ポインタではなくデリゲートを渡す)
 		GetWorldTimerManager().SetTimer(TimerHandle, TimerDel, 2.0f, false);
+	}
+	if (Action)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Action Spawned"));
 	}
 }
 void AChapter02_GameModeBase::OnTimerElapsed(UUserProfile* TargetActor)

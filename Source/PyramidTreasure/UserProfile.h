@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "FColordTexture.h"
+#include "EnumName.h"
 #include "UserProfile.generated.h"
 /**
  * 
@@ -26,5 +27,6 @@ class PYRAMIDTREASURE_API UUserProfile : public UObject
 	FSoftClassPath UClassGameMode;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HUD);
 	FColordTexture Texture;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
+	TEnumAsByte<Status> States;
 };
